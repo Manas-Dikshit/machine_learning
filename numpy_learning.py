@@ -53,10 +53,16 @@ array11=array10.copy()
 array11[array10 > 2] = 0
 print(array11)
 
-#Broadcasting allows NumPy to perform operations on arrays
-#with different shapes by virtually expanding dimensions
-#so they match the larger array's shape.
+# Broadcasting allows NumPy to perform operations on arrays
+# with different shapes by virtually expanding dimensions
+# so they match the larger array's shape.
 
-#the diemnsions have the same size.
-#OR
-#One of the dimensions has a size of 1.
+# the diemnsions have the same size.
+# OR
+# One of the dimensions has a size of 1.
+
+array12 = np.array([[1, 2, 3]])
+array13 = np.array([[10], [20], [30]])
+print(array12.shape)
+print(array13.shape)
+print(array12 * array13)

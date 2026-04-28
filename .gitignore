@@ -1,7 +1,20 @@
+# Virtual environments
 venv/
+
+# Python cache
 __pycache__/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model files
 *.pkl
 *.h5
 *.pt
+
+# Data
 data/
-.ipynb_checkpoints/
+
+# Media / large files
+*.mp4
+*.zip
