@@ -66,3 +66,9 @@ array13 = np.array([[10], [20], [30]])
 print(array12.shape)
 print(array13.shape)
 print(array12 * array13)
+
+array14 = np.array([[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]])
+array15 = np.array([[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]])
+print(array14.shape)
+print(array15.shape)
+print(array14 * array15) # Multiplication Table of 1 to 10
