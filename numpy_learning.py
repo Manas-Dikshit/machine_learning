@@ -88,3 +88,20 @@ print(np.argmin(array16))
 print(np.argmax(array16))
 print(np.sum(array16, axis=0)) # sum of each column
 print(np.sum(array16, axis=1)) # sum of each row
+
+#Filtering (refers to the process of selecting specific elements from an array based on certain conditions or criteria.)
+ages = np.array([[25, 30, 35, 40, 45, 18, 17, 14],
+                [12, 34, 56, 78, 90, 5, 25, 30]])
+teenagers = ages[ages < 18]
+adults = ages[(ages >= 18) & (ages < 65)]
+seniors = ages[ages >= 65]
+evens = ages[ages % 2 == 0]
+odds = ages[ages % 2 != 0]
+print(teenagers)
+print(adults)
+print(seniors)
+print(evens)
+print(odds)
+
+replacements = np.where(ages >= 18, ages, 0)
+print(replacements)
