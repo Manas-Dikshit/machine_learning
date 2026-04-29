@@ -72,3 +72,19 @@ array15 = np.array([[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]])
 print(array14.shape)
 print(array15.shape)
 print(array14 * array15) # Multiplication Table of 1 to 10
+
+# Aggregate Functions = Summerize data and typically 
+#                       Return a single value
+
+array16 = np.array([[1, 2, 3, 4],
+                   [5, 6, 7, 8]])
+print(np.sum(array16))
+print(np.mean(array16))
+print(np.max(array16))
+print(np.min(array16))
+print(np.std(array16)) # standard deviation
+print(np.var(array16)) # Variance
+print(np.argmin(array16))
+print(np.argmax(array16))
+print(np.sum(array16, axis=0)) # sum of each column
+print(np.sum(array16, axis=1)) # sum of each row
