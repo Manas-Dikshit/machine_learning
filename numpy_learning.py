@@ -105,3 +105,27 @@ print(odds)
 
 replacements = np.where(ages >= 18, ages, 0)
 print(replacements)
+
+
+#random Numbers
+
+rng = np.random.default_rng() # Create a random number generator with a seed for reproducibility
+print(rng.integers(low=1, high=10))
+print(rng.random(size=5)) # Generate 5 random numbers between 0 and 1
+print(rng.normal(loc=0, scale=1, size=5)) # Generate 5 random numbers from a normal distribution with mean 0 and standard deviation 1
+print(rng.choice(['apple', 'banana', 'cherry'], size=3)) # Randomly select 3 items from a list
+
+print(np.random.uniform(low=0, high=1, size=4)) # Generate 4 random numbers between 0 and 1
+
+array20 = np.array([1, 2, 3, 4, 5])
+rng.shuffle(array20) # Shuffle the elements of the array in place
+print(array20)
+
+
+fruits = np.array(['apple', 'banana', 'cherry', 'date', 'elderberry'])
+fruit = rng.choice(fruits)
+fruits = rng.choice(fruits, size=3) # Randomly select 3 unique items from the array
+print(fruit)
+print(fruits)
+
+#HENCE THE END OF NUMPY_LEARNING
