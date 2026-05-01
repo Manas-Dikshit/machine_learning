@@ -69,3 +69,15 @@ print(df_labels)
 new_row = pd.DataFrame([{"Name": "Eve", "Age": 28, "City": "Phoenix"}], index=["e"]) #creating new row as a DataFrame
 df_labels = pd.concat([df_labels, new_row], ignore_index=True) #adding new row to DataFrame
 print(df_labels)
+
+
+#importing csv and excel files
+# We can use the read_csv() function to read a CSV file and the read_excel() function to read an Excel file. These functions return a DataFrame that contains the data from the file.
+
+df_csv = pd.read_csv("data.csv") #reading csv file
+print(df_csv)
+print(df_csv.to_string()) #to print entire DataFrame without truncation
+
+#importing json files
+df_json = pd.read_json("data.json") #reading json file
+print(df_json)
