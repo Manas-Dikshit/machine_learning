@@ -109,3 +109,25 @@ try:
     print(df_csv_updated.loc[pokemon]) #selecting a row by index label
 except KeyError:
     print(f"{pokemon} not found in the DataFrame.")
+
+
+
+#Filetering = Keeping the rows that match a condition
+
+tall_pokemon = df_csv[df_csv["height"] >= 2.0] #filtering rows based on a height condition
+print(tall_pokemon)
+
+heavy_pokemon = df_csv[df_csv["weight"] >= 100.0] #filtering rows based on a weight condition
+print(heavy_pokemon)
+
+legendary_pokemon = df_csv[df_csv["legendary"] == True] #filtering rows based on a boolean condition
+print(legendary_pokemon)
+
+water_pokemon = df_csv[df_csv["type1"] == "Water"] #filtering rows based on a string condition
+
+water_pokemon_two_types = df_csv[(df_csv["type1"] == "Water") | (df_csv["type2"] == "Water")] #filtering rows based on multiple string conditions
+print(water_pokemon_two_types)
+print(water_pokemon)
+
+fire_flying_pokemon = df_csv[(df_csv["type1"] == "Fire") & (df_csv["type2"] == "Flying")] #filtering rows based on multiple string conditions
+print(fire_flying_pokemon)
