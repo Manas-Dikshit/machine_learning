@@ -81,3 +81,31 @@ print(df_csv.to_string()) #to print entire DataFrame without truncation
 #importing json files
 df_json = pd.read_json("data.json") #reading json file
 print(df_json)
+
+
+#Selection and Filtering
+# We can select specific columns from a DataFrame using the column names. We can also filter rows based on certain conditions using boolean indexing.
+
+# SELECTION BY COLOUMN
+print(df_csv["name"]) #selecting a column by name
+print(df_csv[["name", "height"]]) #selecting multiple columns by name
+print(df_csv["name"].to_string()) #to print entire column without truncation
+
+#SELECTION BY ROWS
+print(df_csv.loc[0]) #selecting a row by index label
+print(df_csv.iloc[0]) #selecting a row by integer position
+
+df_csv_updated = pd.read_csv("data.csv", index_col="name") #reading csv file with name column as index
+print(df_csv_updated) 
+print(df_csv_updated.loc["Raichu"]) #selecting a row by index label
+print(df_csv_updated.loc["Raichu"]["height"]) #selecting a specific value by row and column labels
+print(df_csv_updated.loc["Raichu" : "Mewtwo"]["height"]) #selecting a specific value by row and column labels
+print(df_csv.iloc[0:5]) #selecting multiple rows by integer position
+
+#USER INPUT AND FINDING IT IN CSV FILE
+pokemon = input("Enter the name of a Pokemon: ")
+
+try:
+    print(df_csv_updated.loc[pokemon]) #selecting a row by index label
+except KeyError:
+    print(f"{pokemon} not found in the DataFrame.")
