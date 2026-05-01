@@ -43,11 +43,11 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ####  Pandas
 
-* [x] Series & DataFrames
-* [ ] Data cleaning
-* [ ] Handling missing values
-* [ ] GroupBy & aggregation
-* [ ] Merging & joining datasets
+* [x] Series 
+* [x] DataFrames
+* [x] Importing
+* [x] Selections & Filtering
+* [ ] Aggregation & Data Cleaning
 
 ---
 
