@@ -1,6 +1,13 @@
+<h1 align="center"> Machine Learning Mastery Roadmap</h1>
+
+<p align="center">
+  <b>From Basics → Advanced → Real-World ML Systems</b><br>
+  <i>A complete structured checklist for deep understanding and long-term revision</i>
+</p>
+
 ---
 
-## 🎯 Objective
+##  Objective
 
 Build a **strong, practical, and production-ready understanding** of Machine Learning by:
 
@@ -12,13 +19,13 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-## 🧭 Complete Roadmap
+##  Complete Roadmap
 
 ---
 
-### 🔰 1. Foundations (MUST MASTER)
+###  1. Foundations (MUST MASTER)
 
-#### 🐍 Python for ML
+####  Python for ML
 
 * [x] Data types, loops, functions
 * [x] List comprehensions
@@ -26,7 +33,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 * [x] OOP basics
 * [x] Virtual environments
 
-#### 🔢 NumPy
+####  NumPy
 
 * [x] Arrays and indexing
 * [x] Broadcasting
@@ -34,7 +41,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 * [x] Linear algebra basics
 * [x] Performance optimization
 
-#### 🐼 Pandas
+####  Pandas
 
 * [x] Series & DataFrames
 * [ ] Data cleaning
@@ -44,7 +51,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-### 📊 2. Data Understanding & Visualization
+###  2. Data Understanding & Visualization
 
 * [ ] Matplotlib basics
 * [ ] Seaborn advanced plots
@@ -55,22 +62,22 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-### 🧮 3. Mathematics for ML
+###  3. Mathematics for ML
 
-#### 📐 Linear Algebra
+####  Linear Algebra
 
 * [ ] Vectors & matrices
 * [ ] Matrix multiplication
 * [ ] Eigenvalues & eigenvectors
 
-#### 📉 Statistics & Probability
+####  Statistics & Probability
 
 * [ ] Mean, variance, std deviation
 * [ ] Probability distributions
 * [ ] Bayes theorem
 * [ ] Hypothesis testing
 
-#### 📈 Calculus
+####  Calculus
 
 * [ ] Derivatives
 * [ ] Gradients
@@ -79,9 +86,9 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-### 🤖 4. Core Machine Learning
+###  4. Core Machine Learning
 
-#### 🔹 Supervised Learning
+####  Supervised Learning
 
 * [ ] Linear Regression
 * [ ] Logistic Regression
@@ -90,7 +97,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 * [ ] Decision Trees
 * [ ] Random Forest
 
-#### 🔹 Unsupervised Learning
+####  Unsupervised Learning
 
 * [ ] K-Means Clustering
 * [ ] Hierarchical Clustering
@@ -98,7 +105,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-### ⚙️ 5. Model Evaluation & Improvement
+###  5. Model Evaluation & Improvement
 
 * [ ] Train/Test split
 * [ ] Cross-validation
@@ -109,7 +116,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-### 🧹 6. Feature Engineering
+###  6. Feature Engineering
 
 * [ ] Encoding (Label, One-hot)
 * [ ] Feature scaling (Standardization, Normalization)
@@ -119,7 +126,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-### 🧠 7. Advanced Machine Learning
+###  7. Advanced Machine Learning
 
 * [ ] Gradient Boosting
 * [ ] XGBoost / LightGBM
@@ -129,7 +136,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-### 🔥 8. Deep Learning (Next Level)
+###  8. Deep Learning (Next Level)
 
 * [ ] Neural Networks basics
 * [ ] Forward & Backpropagation
@@ -140,7 +147,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-### 🧪 9. Projects (MOST IMPORTANT)
+###  9. Projects (MOST IMPORTANT)
 
 * [ ] Beginner projects (simple datasets)
 * [ ] Intermediate ML projects
@@ -151,7 +158,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-### 🚀 10. Deployment & Production
+###  10. Deployment & Production
 
 * [ ] Model saving (pickle, joblib)
 * [ ] API creation (Flask / FastAPI)
@@ -161,7 +168,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-### 📦 11. Tools & Ecosystem
+###  11. Tools & Ecosystem
 
 * [ ] Scikit-learn
 * [ ] TensorFlow / PyTorch
@@ -171,7 +178,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-## 📅 Daily System
+##  Daily System
 
 ```bash
 ✔ Learn concept
@@ -183,7 +190,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-## 📌 Rules to Follow
+##  Rules to Follow
 
 * ❌ Don’t just watch tutorials → ✅ Implement everything
 * ❌ Don’t skip basics → ✅ Build strong foundations
@@ -192,7 +199,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-## ✅ Completion Checklist
+##  Completion Checklist
 
 * [ ] I can explain ML concepts without notes
 * [ ] I can implement algorithms from scratch
@@ -204,7 +211,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
-## 🌟 Final Goal
+##  Final Goal
 
 > Become someone who can:
 
@@ -214,3 +221,6 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ---
 
+<p align="center">
+  <b>💡 Stay consistent. Build deeply. Think independently.</b>
+</p>
