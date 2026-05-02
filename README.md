@@ -47,7 +47,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 * [x] DataFrames
 * [x] Importing
 * [x] Selections & Filtering
-* [ ] Aggregation & Data Cleaning
+* [x] Aggregation & Data Cleaning
 
 ---
 

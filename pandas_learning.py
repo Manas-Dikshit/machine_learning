@@ -154,3 +154,45 @@ group = df_for_aggregate.groupby("type1") #grouping data by type1 column
 print(group["height"].mean()) #calculating mean of each group
 print(group["height"].sum()) #calculating sum of each group
 print(group["height"].min()) #calculating minimum value of each group
+
+
+#Data Cleaning 
+#Data cleaning is the process of identifying and correcting errors, inconsistencies, and inaccuracies in a dataset. It is an essential step in data analysis and machine learning, as it ensures that the data is accurate, complete, and ready for analysis.
+#the process of fixing/removing:
+# - Incorrect data types
+# - Missing values
+# - Duplicates
+# - Outliers
+
+#~75% of work done with pandas is data cleaning
+
+
+#1. Drop irrelevant columns
+df_cleaned1 = df_for_aggregate.drop(columns=["legendary"]) #dropping irrelevant columns
+print(df_cleaned1)
+
+#2. Handle missing Data
+df_cleaned2 = df_for_aggregate.dropna(subset=["type2"]) #dropping rows with missing values
+print(df_cleaned2.to_string())
+
+df_cleaned3 = df_for_aggregate.fillna({"type2": "None"}) #filling missing values with a specific value
+print(df_cleaned3.to_string())
+
+#3. Fix inconsistent values
+df_cleaned4 = df_for_aggregate.replace({"type1": {"Fire": "fire", "Water": "water"}}) #replacing inconsistent values
+print(df_cleaned4.to_string())
+
+#4. Remove duplicates
+df_cleaned5 = df_for_aggregate.drop_duplicates() #dropping duplicate rows 
+print(df_cleaned5.to_string())
+
+#5. Standardize text 
+df_for_aggregate["name"] = df_for_aggregate["name"].str.lower() #standardizing text to lowercase
+print(df_for_aggregate.to_string())
+
+#6. Fix data types
+df_for_aggregate["height"] = df_for_aggregate["height"].astype(float) #fixing data types
+print(df_for_aggregate.dtypes)
+
+df_for_aggregate["weight"] = df_for_aggregate["weight"].astype(float) #fixing data types
+print(df_for_aggregate.dtypes)
