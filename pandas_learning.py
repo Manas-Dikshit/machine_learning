@@ -131,3 +131,26 @@ print(water_pokemon)
 
 fire_flying_pokemon = df_csv[(df_csv["type1"] == "Fire") & (df_csv["type2"] == "Flying")] #filtering rows based on multiple string conditions
 print(fire_flying_pokemon)
+
+
+# Aggregate Functions
+# We can use aggregate functions to perform calculations on the data in a DataFrame. Some common aggregate functions include mean(), sum(), count(), min(), and max().
+# There functions reduces a set of values into a single summary value used to summerize and analyze data often used the groupby() function to group data by a specific column and then apply an aggregate function to each group.
+
+df_for_aggregate = pd.read_csv("data.csv") #reading csv file
+
+
+print(df_for_aggregate.mean(numeric_only=True))
+print(df_for_aggregate["height"].mean()) #calculating mean of a specific column
+print(df_for_aggregate["weight"].mean()) #calculating mean of a specific column
+print(df_for_aggregate.sum(numeric_only=True)) #calculating sum of all numeric columns
+print(df_for_aggregate["height"].sum()) #calculating sum of a specific 
+print(df_for_aggregate.min(numeric_only=True))#calculating minimum value of all numeric columns
+print(df_for_aggregate["height"].min()) #calculating minimum value of a specific column
+print(df_for_aggregate.max(numeric_only=True)) #calculating maximum value of all numeric columns
+print(df_for_aggregate["height"].max()) #calculating maximum value of a specific column
+
+group = df_for_aggregate.groupby("type1") #grouping data by type1 column
+print(group["height"].mean()) #calculating mean of each group
+print(group["height"].sum()) #calculating sum of each group
+print(group["height"].min()) #calculating minimum value of each group
