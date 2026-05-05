@@ -53,7 +53,8 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ###  2. Data Understanding & Visualization
 
-* [ ] Matplotlib basics
+* [x] Matplotlib basics
+* [x] Matplotlib Plot customization
 * [ ] Seaborn advanced plots
 * [ ] Data distribution analysis
 * [ ] Outlier detection
