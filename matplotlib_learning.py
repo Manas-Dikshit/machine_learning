@@ -3,7 +3,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-# print(matplotlib.__version__)
+print(matplotlib.__version__)
 
 x = np.array([2023, 2024, 2025, 2026, 2027])
 y1 = np.array([10, 35, 20, 25, 20])
@@ -46,3 +46,13 @@ plt.plot(x, y3, **line_style) #plotting the third line graph using the style pro
 plt.show() #displaying the graph
 
 
+#grid() = helps to make plots easier to read by adding reference lines to the graph. It can be customized with various parameters to control the appearance of the grid lines, such as color, linestyle, and linewidth.
+
+x2 = np.array([2023, 2024, 2025, 2026, 2027])
+y4 = np.array([10, 35, 20, 25, 20])
+
+plt.grid(color='gray', linestyle='--', linewidth=2.5) #adding a grid to the graph with custom properties
+
+plt.plot(x2, y4, marker='o', markersize=10, markerfacecolor="#3115bd", markeredgecolor="cyan", linestyle='dotted', linewidth=2, color='#097d37')
+
+plt.show()
