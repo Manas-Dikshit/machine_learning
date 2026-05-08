@@ -56,3 +56,18 @@ plt.grid(color='gray', linestyle='--', linewidth=2.5) #adding a grid to the grap
 plt.plot(x2, y4, marker='o', markersize=10, markerfacecolor="#3115bd", markeredgecolor="cyan", linestyle='dotted', linewidth=2, color='#097d37')
 
 plt.show()
+
+#bar-Chart = a graphical representation of data using bars of different heights or lengths to represent the values of different categories. It is commonly used to compare the values of different categories or to show the distribution of data across categories.
+
+categories = np.array(["Grains", "Vegetables", "Fruits", "Dairy", "Meat"])
+values = np.array([30, 25, 20, 15, 10])
+
+plt.bar(categories, values, color=['#5B11A6', '#097d37', '#bdac15', '#3115bd', 'cyan']) #creating a bar chart with custom colors for each bar
+
+
+plt.title("Food Categories", fontsize=25, family="Arial", fontweight="bold", color="red") #adding a title to the bar chart with custom font properties
+plt.xlabel("Categories", fontsize=20, color="green") #labeling the x-axis
+plt.ylabel("Values", fontsize=20, color="green") #labeling the y-axis
+
+plt.barh(categories, values, color=['#5B11A6', '#097d37', '#bdac15', '#3115bd', 'cyan']) #creating a horizontal bar chart with custom colors for each bar
+plt.show() #displaying the bar chart
