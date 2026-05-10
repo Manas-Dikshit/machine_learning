@@ -71,3 +71,16 @@ plt.ylabel("Values", fontsize=20, color="green") #labeling the y-axis
 
 plt.barh(categories, values, color=['#5B11A6', '#097d37', '#bdac15', '#3115bd', 'cyan']) #creating a horizontal bar chart with custom colors for each bar
 plt.show() #displaying the bar chart
+
+
+
+#Pie_chart = a circular statistical graphic, which is divided into slices to illustrate numerical proportion. In a pie chart, the arc length of each slice (and consequently its central angle and area) is proportional to the quantity it represents. While it is named for its resemblance to a pie which has been sliced, there are variations on the way it can be presented.
+
+categories2 = np.array(["Freshman", "Sophomore", "Junior", "Senior"])
+values2 = np.array([250, 320, 260, 285])
+colors=['#5B11A6', '#097d37', '#bdac15', '#3115bd']
+
+plt.pie(values2, labels=categories2, autopct='%1.1f%%', startangle=90, colors=colors, explode=[0, 0, 0, 0.1], shadow=True) #creating a pie chart with custom colors and displaying the percentage values for each slice
+plt.title("Student Distribution by Year", fontsize=25, family="Arial", fontweight="bold", color="red") #adding a title to the pie chart with custom font properties
+plt.axis('equal') #ensuring that the pie chart is circular
+plt.show() #displaying the pie chart
