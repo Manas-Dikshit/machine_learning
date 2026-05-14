@@ -93,7 +93,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 
 ####  Supervised Learning
 
-* [ ] Linear Regression
+* [x] Linear Regression
 * [ ] Logistic Regression
 * [ ] K-Nearest Neighbors
 * [ ] Support Vector Machines
