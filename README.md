@@ -57,7 +57,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 * [x] Matplotlib Plot customization
 * [x] Matplotlib labels
 * [x] Matplotlib Completion
-* [ ] Seaborn advanced plots
+* [x] Seaborn advanced plots
 * [ ] Data distribution analysis
 * [ ] Outlier detection
 * [ ] Correlation analysis
