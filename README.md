@@ -94,6 +94,7 @@ Build a **strong, practical, and production-ready understanding** of Machine Lea
 ####  Supervised Learning
 
 * [x] Linear Regression
+* [x] gradient decent & Cost function
 * [ ] Logistic Regression
 * [ ] K-Nearest Neighbors
 * [ ] Support Vector Machines
