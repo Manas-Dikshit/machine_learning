@@ -1,0 +1,284 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.wrap { padding: 1.5rem 0; }
+.stepper { display: flex; gap: 8px; margin-bottom: 2rem; flex-wrap: wrap; }
+.step-dot { width: 32px; height: 32px; border-radius: 50%; border: 0.5px solid var(--color-border-secondary); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; color: var(--color-text-secondary); cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
+.step-dot.active { background: var(--color-background-info); color: var(--color-text-info); border-color: var(--color-border-info); }
+.step-dot.done { background: var(--color-background-success); color: var(--color-text-success); border-color: var(--color-border-success); }
+.step-line { height: 1px; flex: 1; background: var(--color-border-tertiary); align-self: center; min-width: 8px; }
+.panel { display: none; }
+.panel.active { display: block; }
+.panel-header { margin-bottom: 1.25rem; }
+.panel-header h2 { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.panel-header p { font-size: 14px; color: var(--color-text-secondary); line-height: 1.5; }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 1rem; }
+.card-label { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+.card-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.card-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: var(--border-radius-md); font-weight: 500; margin-right: 6px; }
+.badge-blue { background: var(--color-background-info); color: var(--color-text-info); }
+.badge-green { background: var(--color-background-success); color: var(--color-text-success); }
+.badge-warn { background: var(--color-background-warning); color: var(--color-text-warning); }
+.code-block { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 12px; color: var(--color-text-primary); line-height: 1.6; overflow-x: auto; margin: 0.75rem 0; white-space: pre; }
+.nav { display: flex; gap: 8px; margin-top: 1.5rem; justify-content: space-between; align-items: center; }
+.nav button { font-size: 13px; }
+.progress { font-size: 12px; color: var(--color-text-secondary); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.highlight-box { border: 0.5px solid var(--color-border-info); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; background: var(--color-background-info); margin-bottom: 1rem; }
+.highlight-box p { font-size: 13px; color: var(--color-text-info); line-height: 1.5; }
+@media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
+</style>
+
+<div class="wrap">
+  <div class="stepper" id="stepper">
+    <div class="step-dot active" onclick="goTo(0)">1</div>
+    <div class="step-line"></div>
+    <div class="step-dot" onclick="goTo(1)">2</div>
+    <div class="step-line"></div>
+    <div class="step-dot" onclick="goTo(2)">3</div>
+    <div class="step-line"></div>
+    <div class="step-dot" onclick="goTo(3)">4</div>
+    <div class="step-line"></div>
+    <div class="step-dot" onclick="goTo(4)">5</div>
+    <div class="step-line"></div>
+    <div class="step-dot" onclick="goTo(5)">6</div>
+  </div>
+
+  <!-- Step 1: What is finetuning -->
+  <div class="panel active" id="panel-0">
+    <div class="panel-header">
+      <h2>What is finetuning?</h2>
+      <p>Training a pretrained model further on a smaller, task-specific dataset to specialize it for your use case.</p>
+    </div>
+    <div class="highlight-box">
+      <p>You take a large model that already knows language, then teach it your specific task with a small dataset. Instead of training from scratch (weeks + $$), you finetune in <strong>minutes to hours</strong>.</p>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Pretrained model</div>
+        <div class="card-title">General knowledge</div>
+        <div class="card-desc">Knows grammar, context, reasoning — trained on billions of tokens</div>
+      </div>
+      <div class="card">
+        <div class="card-label">After finetuning</div>
+        <div class="card-title">Task-specific</div>
+        <div class="card-desc">Classifies sentiment, answers domain questions, translates — your job</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Technique we'll use</div>
+      <div class="card-title">LoRA (Low-Rank Adaptation) <span class="badge badge-green">Fastest</span></div>
+      <div class="card-desc">Freezes most weights, trains only tiny adapter layers (~1% of params). Runs on free Colab GPU in under 30 minutes.</div>
+    </div>
+  </div>
+
+  <!-- Step 2: Choose Model -->
+  <div class="panel" id="panel-1">
+    <div class="panel-header">
+      <h2>Choose your model</h2>
+      <p>For fast finetuning, pick a small but capable model from HuggingFace.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Recommended <span class="badge badge-green">Best for beginners</span></div>
+      <div class="card-title">google/flan-t5-base</div>
+      <div class="card-desc">250M parameters. Encoder-decoder. Pre-instruction-tuned. Excellent for classification, Q&A, summarization. Runs on free Colab in ~15 min.</div>
+      <div class="code-block">from transformers import AutoModelForSeq2SeqLM
+model = AutoModelForSeq2SeqLM.from_pretrained("google/flan-t5-base")</div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Alternative — generation</div>
+        <div class="card-title">TinyLlama-1.1B</div>
+        <div class="card-desc">1.1B params. Good for text generation tasks. Slightly slower to finetune.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Alternative — classification</div>
+        <div class="card-title">distilbert-base-uncased</div>
+        <div class="card-desc">66M params. Fastest to finetune. Best for pure text classification only.</div>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <p>We'll proceed with <strong>flan-t5-base</strong> — it's versatile and fast. You can swap it for any HuggingFace model with the same code.</p>
+    </div>
+  </div>
+
+  <!-- Step 3: Dataset -->
+  <div class="panel" id="panel-2">
+    <div class="panel-header">
+      <h2>Choose your dataset</h2>
+      <p>We'll use a publicly available dataset. No Kaggle account needed — HuggingFace Datasets library handles everything.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Recommended dataset <span class="badge badge-green">Free, no login</span></div>
+      <div class="card-title">emotion (text emotion classification)</div>
+      <div class="card-desc">~20,000 English tweets labeled with 6 emotions: joy, sadness, anger, fear, love, surprise. Perfect for a classification task.</div>
+      <div class="code-block">from datasets import load_dataset
+dataset = load_dataset("dair-ai/emotion")
+# train: 16000 rows, validation: 2000, test: 2000</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Format of each row</div>
+      <div class="card-title">Input → Label</div>
+      <div class="card-desc">"i feel like i am still looking for" → <span class="badge badge-blue">sadness (1)</span><br>
+      "i am feeling grumpy" → <span class="badge badge-warn">anger (2)</span></div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-label">Alternative datasets</div>
+        <div class="card-title">sst2 (sentiment)</div>
+        <div class="card-desc">Movie reviews → positive/negative. Classic benchmark.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Alternative datasets</div>
+        <div class="card-title">ag_news (topic)</div>
+        <div class="card-desc">News headlines → 4 categories. Good variety.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4: Setup -->
+  <div class="panel" id="panel-3">
+    <div class="panel-header">
+      <h2>Setup environment</h2>
+      <p>Run these in Google Colab (free GPU: T4). Takes ~3 minutes to install.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Step 4a — Install libraries</div>
+      <div class="code-block">!pip install transformers datasets peft accelerate -q</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Step 4b — Import & load everything</div>
+      <div class="code-block">from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import DataCollatorForSeq2Seq, Seq2SeqTrainer
+from transformers import Seq2SeqTrainingArguments
+from datasets import load_dataset
+from peft import get_peft_model, LoraConfig, TaskType
+
+model_name = "google/flan-t5-base"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+dataset = load_dataset("dair-ai/emotion")</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Step 4c — Apply LoRA config</div>
+      <div class="code-block">lora_config = LoraConfig(
+    task_type=TaskType.SEQ_2_SEQ_LM,
+    r=8,           # LoRA rank (lower = faster)
+    lora_alpha=32,
+    lora_dropout=0.1
+)
+model = get_peft_model(model, lora_config)
+model.print_trainable_parameters()
+# Trainable params: ~0.5% of total</div>
+    </div>
+  </div>
+
+  <!-- Step 5: Train -->
+  <div class="panel" id="panel-4">
+    <div class="panel-header">
+      <h2>Preprocess & train</h2>
+      <p>Format data for the model, then run training. Should finish in 15–25 min on Colab T4.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Step 5a — Preprocess data</div>
+      <div class="code-block">label_map = {0:"sadness",1:"joy",2:"love",3:"anger",4:"fear",5:"surprise"}
+
+def preprocess(examples):
+    inputs = ["classify emotion: " + t for t in examples["text"]]
+    targets = [label_map[l] for l in examples["label"]]
+    model_inputs = tokenizer(inputs, max_length=128, truncation=True)
+    labels = tokenizer(targets, max_length=8, truncation=True)
+    model_inputs["labels"] = labels["input_ids"]
+    return model_inputs
+
+tokenized = dataset.map(preprocess, batched=True, remove_columns=dataset["train"].column_names)</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Step 5b — Training args & run</div>
+      <div class="code-block">args = Seq2SeqTrainingArguments(
+    output_dir="./emotion-flan-t5",
+    num_train_epochs=3,
+    per_device_train_batch_size=16,
+    learning_rate=3e-4,
+    save_steps=500,
+    logging_steps=100,
+    predict_with_generate=True,
+    fp16=True,          # faster on GPU
+)
+
+trainer = Seq2SeqTrainer(
+    model=model,
+    args=args,
+    train_dataset=tokenized["train"],
+    eval_dataset=tokenized["validation"],
+    tokenizer=tokenizer,
+    data_collator=DataCollatorForSeq2Seq(tokenizer, model),
+)
+
+trainer.train()  # ~15-25 minutes on Colab T4</div>
+    </div>
+  </div>
+
+  <!-- Step 6: Inference -->
+  <div class="panel" id="panel-5">
+    <div class="panel-header">
+      <h2>Test your finetuned model</h2>
+      <p>Run inference, save the model, and push to HuggingFace Hub if you want.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Step 6a — Run inference</div>
+      <div class="code-block">def predict(text):
+    input_ids = tokenizer(
+        "classify emotion: " + text,
+        return_tensors="pt"
+    ).input_ids
+    outputs = model.generate(input_ids, max_new_tokens=8)
+    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+predict("I just got a promotion at work!")   # → joy
+predict("I can't believe they lied to me")   # → anger
+predict("Today was just another boring day") # → sadness</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Step 6b — Save model</div>
+      <div class="code-block">model.save_pretrained("./my-emotion-model")
+tokenizer.save_pretrained("./my-emotion-model")
+
+# Optional: push to HuggingFace Hub
+# model.push_to_hub("your-username/emotion-flan-t5")</div>
+    </div>
+    <div class="highlight-box">
+      <p>That's it! You've finetuned a transformer model using LoRA in under 30 minutes. Try swapping the dataset for your own CSV data — the pipeline stays the same.</p>
+    </div>
+    <button onclick="sendPrompt('How do I use my own custom CSV dataset instead of the emotion dataset for finetuning?')" style="font-size:13px; margin-top:8px;">Use my own dataset ↗</button>
+  </div>
+
+  <div class="nav">
+    <button id="btn-prev" onclick="nav(-1)" disabled>← Previous</button>
+    <span class="progress" id="progress">Step 1 of 6</span>
+    <button id="btn-next" onclick="nav(1)">Next →</button>
+  </div>
+</div>
+
+<script>
+let cur = 0;
+const total = 6;
+function goTo(n) {
+  document.getElementById('panel-'+cur).classList.remove('active');
+  const dots = document.querySelectorAll('.step-dot');
+  dots[cur].classList.remove('active');
+  if (n > cur) dots[cur].classList.add('done');
+  else dots[cur].classList.remove('done');
+  cur = n;
+  document.getElementById('panel-'+cur).classList.add('active');
+  dots[cur].classList.add('active');
+  dots[cur].classList.remove('done');
+  document.getElementById('progress').textContent = 'Step '+(cur+1)+' of '+total;
+  document.getElementById('btn-prev').disabled = cur === 0;
+  document.getElementById('btn-next').disabled = cur === total-1;
+  document.getElementById('btn-next').textContent = cur === total-1 ? 'Done ✓' : 'Next →';
+}
+function nav(dir) { if(cur+dir >= 0 && cur+dir < total) goTo(cur+dir); }
+</script>
